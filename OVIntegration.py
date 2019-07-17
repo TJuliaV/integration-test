@@ -19,13 +19,16 @@ class OVIntegration(object):
     def start_integration(self):
         self.add_log("integration-test: started", "integration-test started", "Info")
 
-        self.trackorId  = self.search_trackor()
+        self.trackorId = ""
+        allTrackor = self.search_trackor()
+
+        for trackor in allTrackor:
+            self.trackorId = trackor['TRACKOR_ID']
+            self.add_log("integration-test: trackor found", "integration-test: trackor with trackor_key '" + str(self.trackorKey) + "' found, trackor_id = " + str(self.trackorId), "Info")
 
         if self.trackorId == "":
             self.trackorId = self.add_trackor()
             self.add_log("integration-test: trackor created", "integration-test: trackor with trackor_key '" + str(self.trackorKey) + "' created, trackor_id = " + str(self.trackorId), "Info")
-        else:
-            self.add_log("integration-test: trackor found", "integration-test: trackor with trackor_key '" + str(self.trackorKey) + "' found, trackor_id = " + str(self.trackorId), "Info")
 
         self.add_log("integration-test: finished", "integration-test: finished", "Info")
 
@@ -34,7 +37,7 @@ class OVIntegration(object):
             url = self.url + "/api/v3/trackor_types/" + str(self.trackorType) + "/trackors?Trackor_key=%22" + str(self.trackorKey) + "%22"
             answer = requests.get(url, headers=self.headers, auth=self.auth)
             response = answer.json()
-            return response['TRACKOR_ID']
+            return response
         except Exception as e:
             return ""
 
