@@ -23,11 +23,13 @@ class OVIntegration(object):
 
         for trackor in allTrackor:
             self.trackorId = trackor['TRACKOR_ID']
-            self.add_log("integration-test: trackor found", "integration-test: trackor with trackor_key '" + str(self.trackorKey) + "' found, trackor_id = " + str(self.trackorId), "Info")
 
         if self.trackorId == "":
             self.trackorId = self.add_trackor()
-            self.add_log("integration-test: trackor created", "integration-test: trackor with trackor_key '" + str(self.trackorKey) + "' created, trackor_id = " + str(self.trackorId), "Info")
+            self.add_log("integration-test: trackor created", "integration-test: trackor with trackor_key '" + str(self.trackorKey) + "' created", "Info")
+        else:
+            self.add_log("integration-test: trackor found", "integration-test: trackor with trackor_key '" + str(self.trackorKey) + "' found", "Info")
+
 
     def search_trackor(self):
         try:
