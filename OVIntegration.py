@@ -50,7 +50,7 @@ class OVIntegration(object):
         return response['TRACKOR_ID']
 
     def add_log(self, message, description, log_level_name):
-        url = self.url + "/api/v3/integrations/runs/logs/" + self.process_id + "/logs"
+        url = self.url + "/api/v3/integrations/runs/logs/" + self.processId + "/logs"
         data = {
             "message": message,
             "description": description,
