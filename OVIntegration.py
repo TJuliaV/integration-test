@@ -17,7 +17,6 @@ class OVIntegration(object):
             self.start_integration()
 
     def start_integration(self):
-        self.add_log("integration-test: started", "integration-test started", "Info")
 
         self.trackorId = ""
         allTrackor = self.search_trackor()
@@ -29,8 +28,6 @@ class OVIntegration(object):
         if self.trackorId == "":
             self.trackorId = self.add_trackor()
             self.add_log("integration-test: trackor created", "integration-test: trackor with trackor_key '" + str(self.trackorKey) + "' created, trackor_id = " + str(self.trackorId), "Info")
-
-        self.add_log("integration-test: finished", "integration-test: finished", "Info")
 
     def search_trackor(self):
         try:
