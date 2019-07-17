@@ -23,9 +23,9 @@ class OVIntegration(object):
 
         if self.trackorId == "":
             self.trackorId = self.add_trackor()
-            self.add_log("integration-test: trackor created", "integration-test: trackor with trackor_key '" + self.trackorKey + "' created, trackor_id = " + self.trackorId, "Info")
+            self.add_log("integration-test: trackor created", "integration-test: trackor with trackor_key '" + str(self.trackorKey) + "' created, trackor_id = " + str(self.trackorId), "Info")
         else:
-            self.add_log("integration-test: trackor found", "integration-test: trackor with trackor_key '" + self.trackorKey + "' found, trackor_id = " + self.trackorId, "Info")
+            self.add_log("integration-test: trackor found", "integration-test: trackor with trackor_key '" + str(self.trackorKey) + "' found, trackor_id = " + str(self.trackorId), "Info")
 
         self.add_log("integration-test: finished", "integration-test: finished", "Info")
 
@@ -39,10 +39,10 @@ class OVIntegration(object):
             return ""
 
     def add_trackor(self):
-        url = self.url + "/api/v3/trackor_types/" + self.trackorType + "/trackors"
+        url = self.url + "/api/v3/trackor_types/" + str(self.trackorType) + "/trackors"
         data = {
             "fields": {
-                "TRACKOR_KEY": self.trackorKey
+                "TRACKOR_KEY": str(self.trackorKey)
             }
         }
         answer = requests.post(url, headers=self.headers, data=json.dumps(data), auth=self.auth)
@@ -50,7 +50,7 @@ class OVIntegration(object):
         return response['TRACKOR_ID']
 
     def add_log(self, message, description, log_level_name):
-        url = self.url + "/api/v3/integrations/runs/logs/" + self.processId + "/logs"
+        url = self.url + "/api/v3/integrations/runs/logs/" + str(self.process_id) + "/logs"
         data = {
             "message": message,
             "description": description,
