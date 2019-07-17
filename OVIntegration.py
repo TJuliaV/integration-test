@@ -17,17 +17,17 @@ class OVIntegration(object):
             self.start_integration()
 
     def start_integration(self):
-        self.add_log(self, "integration-test: started", "integration-test started", "Info")
+        self.add_log("integration-test: started", "integration-test started", "Info")
 
         self.trackorId  = self.search_trackor()
 
         if self.trackorId == "":
             self.trackorId = self.add_trackor()
-            self.add_log(self, "integration-test: trackor created", "integration-test: trackor with trackor_key '" + self.trackorKey + "' created, trackor_id = " + self.trackorId, "Info")
+            self.add_log("integration-test: trackor created", "integration-test: trackor with trackor_key '" + self.trackorKey + "' created, trackor_id = " + self.trackorId, "Info")
         else:
-            self.add_log(self, "integration-test: trackor found", "integration-test: trackor with trackor_key '" + self.trackorKey + "' found, trackor_id = " + self.trackorId, "Info")
+            self.add_log("integration-test: trackor found", "integration-test: trackor with trackor_key '" + self.trackorKey + "' found, trackor_id = " + self.trackorId, "Info")
 
-        self.add_log(self, "integration-test: finished", "integration-test: finished", "Info")
+        self.add_log("integration-test: finished", "integration-test: finished", "Info")
 
     def search_trackor(self):
         try:
