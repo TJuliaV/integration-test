@@ -1,1 +1,1 @@
-command = python3 ./IntegrationTest.py
+command = python3 ./TestIntegration.py
