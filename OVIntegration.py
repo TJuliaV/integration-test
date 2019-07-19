@@ -26,9 +26,9 @@ class OVIntegration(object):
 
         if self.trackorId == "":
             self.trackorId = self.add_trackor()
-            self.add_log("integration-test: trackor created", "integration-test: trackor with trackor_key '" + str(self.trackorKey) + "' created", "Info")
+            self.add_log("test-integration: trackor created", "test-integration: trackor with trackor_key '" + str(self.trackorKey) + "' created", "Info")
         else:
-            self.add_log("integration-test: trackor found", "integration-test: trackor with trackor_key '" + str(self.trackorKey) + "' found", "Info")
+            self.add_log("test-integration: trackor found", "test-integration: trackor with trackor_key '" + str(self.trackorKey) + "' found", "Info")
 
 
     def search_trackor(self):
